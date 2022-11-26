@@ -17,7 +17,8 @@ async function getData() {
   const urlFetch = pageAtual ? pageAtual : pageOne;
   const promise = await fetch(urlFetch);
   const json = await promise.json();
-  const { products, nextPage } = json;
+  const { products, nextPage }: { products: Array<Data>; nextPage: string } =
+    json;
   newPage(nextPage);
   const containerLi = document.querySelectorAll<HTMLLIElement>(".container-li");
   if (containerLi.length < 100) {
